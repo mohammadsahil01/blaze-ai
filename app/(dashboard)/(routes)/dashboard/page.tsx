@@ -26,7 +26,7 @@ const tools = [
 
 
 
-const dashboard = ()=> {
+const Dashboard = ()=> {
   const router = useRouter()
   return (
   <div>
@@ -62,4 +62,4 @@ const dashboard = ()=> {
   )
 }
 
-export default dashboard; 
+export default Dashboard; 
