@@ -30,11 +30,22 @@ export async function POST(
             }
 
             const response = await replicate.run(
-                "riffusion/riffusion:8cf61ea6c56afd61d8f5b9ffd14d7c216c0a93844ce2d82ac1c9ecc9c7f24e05",
+                "meta/musicgen:7be0f12c54a8d033a0fbd14418c9af98962da9a86f5ff7811f9b3423a1f0b7d7",
                 {
-                  input: {
-                    prompt_a:prompt
-                  }
+                    input: {
+                        top_k: 250,
+                        top_p: 0,
+                        prompt: prompt,
+                        duration: 5,
+                        temperature: 1,
+                        continuation: false,
+                        model_version: "stereo-large",
+                        output_format: "wav",
+                        continuation_start: 0,
+                        multi_band_diffusion: false,
+                        normalization_strategy: "peak",
+                        classifier_free_guidance: 3
+                      }
                 }
               );
               await increaseApiLimit();
@@ -43,7 +54,7 @@ export async function POST(
 
 
         } catch (error){
-            console.log("{Music ERROR",error);
+            console.log("Music ERROR",error);
             return new NextResponse("Internal error",{status:500})
         }
     }

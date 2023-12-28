@@ -1,11 +1,14 @@
 "use client";
 
-import { Dialog, DialogContent, DialogDescription, DialogHeader } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader } from "@/components/ui/dialog";
 import { useProModal } from "@/hooks/use-pro-modal";
 import { DialogTitle } from "@radix-ui/react-dialog";
 import { Badge } from "./ui/badge";
 import { Card } from "./ui/card";
 import { Check } from "lucide-react";
+import axios from "axios";
+import { useState } from "react";
+import { Button } from "./ui/button";
 
 const tools = [
     {
@@ -24,8 +27,21 @@ const tools = [
   ]
 
 export const ProModal =()=>{
-
     const proModal = useProModal();
+    const [loading,setLoading]= useState(false)
+    const onsubscribe = async()=>{
+      try{
+        setLoading(true);
+        const response = await axios.get("/api/stripe")
+        console.log(response)
+        window.location.href = response.data.url
+      }catch(error){
+        console.log(error,"STRIPE_CLIENT_ERROR")
+      }
+      finally{
+        setLoading(false)
+      }
+    }
     return(
         <div>
             <Dialog open={proModal.isOpen} onOpenChange={proModal.onclose}>
@@ -51,6 +67,15 @@ export const ProModal =()=>{
                         ))}
                         </DialogDescription>
                     </DialogHeader>
+                    <DialogFooter>
+                      <Button
+                      onClick={onsubscribe}
+                      size="lg" 
+                      variant="default"
+                      className="w-full">
+                        Upgrade
+                      </Button>
+                    </DialogFooter>
                 </DialogContent>
             </Dialog>
         </div>

@@ -34,7 +34,7 @@ const MusicPage = () => {
         try{
             const response = await axios.post("/api/music",values)
             console.log(response)
-            setMusic(response.data.audio)
+            setMusic(response.data)
             form.reset();
         } catch(error:any){
             if(error?.response?.status===403){
@@ -92,7 +92,7 @@ const MusicPage = () => {
                 )}
                {music && (
                 <audio controls className="w-full mt-8">
-                 <source src={music}/>
+                 <source src={music} type="audio/wav"/>
                 </audio>
                )}
             </div>
