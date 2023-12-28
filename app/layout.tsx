@@ -3,7 +3,8 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ModalProvider } from '@/components/modal-provider'
-import Script from 'next/script'
+
+import { ToastProvider } from '@/components/toaster-provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,10 +23,10 @@ export default function RootLayout({
         <html lang="en">
           <body className={inter.className}>
             <ModalProvider/>
+            <ToastProvider/>
             {children}
           </body>
         </html>
-        <Script src='https://checkout.razorpay.com/v1/checkout.js'></Script>
    </ClerkProvider>
     
   )

@@ -1,33 +1,39 @@
 "use client";
-import { Zap } from "lucide-react"
-import { Button } from "./button"
-import { useState } from "react"
-import axios from "axios"
 
-interface subscriptionButtonProps {
-    isPro:boolean,
+import axios from "axios";
+import { useState } from "react";
+import { Zap } from "lucide-react";
 
-}
 
-export const SubscriptionButton = async({isPro = false}:subscriptionButtonProps)=> {
-    const [loading,setLoading] = useState(false)
-    const onClick =async () => {
-        try{
-            setLoading(true)
-            const response = await axios.get("api/stripe");
-            window.location.href = response.data.url
-        }catch(error){
-            console.log("BILLING_ERROR",error)
-        }finally{
-            setLoading(false)
-        }
+import { Button } from "@/components/ui/button";
+import toast from "react-hot-toast";
+
+export const SubscriptionButton = ({
+  isPro = false
+}: {
+  isPro: boolean;
+}) => {
+  const [loading, setLoading] = useState(false);
+
+  const onClick = async () => {
+    try {
+      setLoading(true);
+
+      const response = await axios.get("/api/stripe");
+
+      window.location.href = response.data.url;
+    } catch (error) {
+      toast.error("Something went wrong")
+      console.log(error)
+    } finally {
+      setLoading(false);
     }
-    
-    return(
-        <Button variant={isPro?"default":"default"} onClick={onClick} disabled={loading}>
-            
-            {isPro?"Manage subscription":"Upgrade"}
-            {!isPro && <Zap className="w-4 h-4 ml-2 fill-white"/>}
-        </Button>
-    )
-}
+  };
+
+  return (
+    <Button variant="default" disabled={loading} onClick={onClick} >
+      {isPro ? "Manage Subscription" : "Upgrade"}
+      {!isPro && <Zap className="w-4 h-4 ml-2 fill-white" />}
+    </Button>
+  )
+};

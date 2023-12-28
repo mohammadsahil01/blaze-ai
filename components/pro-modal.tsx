@@ -9,6 +9,7 @@ import { Check } from "lucide-react";
 import axios from "axios";
 import { useState } from "react";
 import { Button } from "./ui/button";
+import toast from "react-hot-toast";
 
 const tools = [
     {
@@ -18,11 +19,7 @@ const tools = [
       label:"Image Generator",
     },
     {
-      label:"Video Generator",
-    },
-    {
       label:"Music Generator",
-      href:"/music"
     },
   ]
 
@@ -36,6 +33,7 @@ export const ProModal =()=>{
         console.log(response)
         window.location.href = response.data.url
       }catch(error){
+        toast.error("Something went wrong")
         console.log(error,"STRIPE_CLIENT_ERROR")
       }
       finally{
@@ -69,6 +67,7 @@ export const ProModal =()=>{
                     </DialogHeader>
                     <DialogFooter>
                       <Button
+                      disabled={loading}
                       onClick={onsubscribe}
                       size="lg" 
                       variant="default"
