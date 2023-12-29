@@ -3,6 +3,7 @@ import { useAuth } from "@clerk/nextjs";
 import { Butterfly_Kids } from "next/font/google";
 import TypewriterComponent from "typewriter-effect";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 
 
@@ -25,9 +26,12 @@ const LandingContent = () => {
             </div>
 
         <div>
+            <Link href={isSignedIn? "/dashboard":"/sign-up"}>
             <Button className="bg-white text-black hover:bg-slate-500 hover:text-white">
                 Start Using For Free
             </Button>
+            </Link>
+            
         </div>
                 
     </div> );
