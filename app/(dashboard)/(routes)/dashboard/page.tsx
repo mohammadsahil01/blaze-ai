@@ -14,10 +14,6 @@ const tools = [
     href:"/image"
   },
   {
-    label:"Video Generator",
-    href:"/video"
-  },
-  {
     label:"Music Generator",
     href:"/music"
   },
