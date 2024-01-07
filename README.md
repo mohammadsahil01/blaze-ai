@@ -1,3 +1,35 @@
+# Blaze AI
+
+Blaze AI is a versatile project that integrates various artificial intelligence features, including music generation, chatbot, and image generation.
+
+![Your Image](screenshot.png)
+
+## Features
+
+### 1. Music Generation
+
+### 2. ChatBot
+
+### 3. Image Generation
+
+## Technologies Used
+
+- **Next.js**
+- **TypeScript**
+- **Zod** 
+- **PostgreSQL** 
+- **Prisma ORM**
+
+## Getting Started
+
+Follow these steps to set up Blaze AI on your local machine:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/blaze-ai.git
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

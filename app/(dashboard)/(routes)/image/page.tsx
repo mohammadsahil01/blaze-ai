@@ -158,7 +158,7 @@ const ImagePage = () => {
                     <Loader/>   
                 )}
                 {images.length ===0 && !isLoading &&(
-                    <Empty label="No Images genereated." src="/empty.png"/>
+                    <Empty label="No Images generated." src="/empty.png"/>
                 )}
                 <div className="grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
                 {images.map((src)=>(
