@@ -12,6 +12,11 @@ Blaze AI is a versatile project that integrates various artificial intelligence 
 
 ### 3. Image Generation
 
+## LLM Used
+- **OPEN AI gpt-3.5-turbo"**
+- **OPEN AI DALL·E**
+- **META MusicGen**
+
 ## Technologies Used
 
 - **Next.js**
