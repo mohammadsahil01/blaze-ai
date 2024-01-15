@@ -1,6 +1,7 @@
 import { checkApiLimit, increaseApiLimit } from "@/lib/api-limit";
 import { checkSubscription } from "@/lib/subscription";
 import { auth } from "@clerk/nextjs";
+import { TIMEOUT } from "dns";
 import { NextResponse } from "next/server";
 import Replicate from "replicate";
 
@@ -53,3 +54,18 @@ export async function POST(
             return new NextResponse("Internal error",{status:500})
         }
     }
+
+    
+
+    // export default async (req, res) => {
+    //   try {
+    //     const response = await axios.get('https://api.example.com/someData', {
+    //       timeout: 5000, // Set your desired timeout value in milliseconds (e.g., 5000ms or 5 seconds)
+    //     });
+    
+    //     const data = response.data;
+    //     res.status(200).json({ data });
+    //   } catch (error) {
+    //     res.status(500).json({ error: 'Request timed out or an error occurred' });
+    //   }
+    // };

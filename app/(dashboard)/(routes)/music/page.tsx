@@ -33,7 +33,7 @@ const MusicPage = () => {
 
     const onSubmit = async (values: z.infer<typeof formSchema>)=>{
         try{
-            const response = await axios.post("/api/music",values)
+            const response = await axios.post("/api/music",values,{timeout:15000})
             console.log(response)
             setMusic(response.data.audio)
             form.reset();

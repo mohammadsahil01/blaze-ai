@@ -40,7 +40,7 @@ const ImagePage = () => {
     const onSubmit = async (values: z.infer<typeof formSchema>)=>{
         try{
             setImages([])
-            const response = await axios.post("/api/image",values)
+            const response = await axios.post("/api/image",values,{timeout:15000})
 
             const urls = response.data.map((image:{url:string})=>image.url)
 
@@ -169,6 +169,7 @@ const ImagePage = () => {
 
                     src={src} width="300" height="300"/>
                     </div>
+                    <Button className="mx-2 w-full">DownLoad</Button>
                     </Card>
                 ))}
                 </div>
