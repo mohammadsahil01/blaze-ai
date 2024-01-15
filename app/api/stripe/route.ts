@@ -46,7 +46,7 @@ export async function GET(){
                             name:"blaze AI",
                             description:"All AI tools",
                         },
-                        unit_amount:5000,
+                        unit_amount:500000,
                         recurring:{
                             interval:"month"
                         },

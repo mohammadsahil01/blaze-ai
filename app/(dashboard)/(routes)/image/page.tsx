@@ -58,6 +58,10 @@ const ImagePage = () => {
             router.refresh()
         }
     };
+
+    
+
+
     return ( 
     <div>
         <Heading 
@@ -163,13 +167,13 @@ const ImagePage = () => {
                 <div className="grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
                 {images.map((src)=>(
                     <Card key={src} className="rounded-lg overflow-hidden">
-                    <div className="relative aspect-square">
+                    <div className="relative aspect-square flex items-center justify-center">
                     <Image 
                     alt="Image"
 
-                    src={src} width="300" height="300"/>
+                    src={src} width="400" height="400"/>
                     </div>
-                    <Button className="mx-2 w-full">DownLoad</Button>
+                   
                     </Card>
                 ))}
                 </div>
