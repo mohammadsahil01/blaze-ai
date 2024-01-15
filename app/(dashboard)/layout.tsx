@@ -2,7 +2,7 @@ import Navbar from "@/components/navbar";
 import Sidebar from "@/components/sidebar";
 import { getApiLimitCount } from "@/lib/api-limit";
 import { checkSubscription } from "@/lib/subscription";
-import axios from "axios";
+
 
 const dashboardLayout = async ({children}:{children:React.ReactNode}) => {
     const isPro = await checkSubscription()
